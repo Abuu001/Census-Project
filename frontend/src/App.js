@@ -8,6 +8,8 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import CensusQA from './components/Census QA/CensusQA';
 import CensusForm from './components/Census QA/CensusForm';
+import EndForm from './components/Census QA/EndForm';
+import Final from './components/Census QA/Final';
 
 toast.configure();
 
@@ -48,6 +50,8 @@ function App() {
               <Route exact path="/dashboard" render={props => isAuthenticated ?  <Dashboard  {...props} setAuth={setAuth} />  :  (<Redirect  to="/" />) }/>
               <Route exact path="/dashboard/censusQA" render={props =>(<CensusQA/>)} />
               <Route exact path="/dashboard/censusForm" render={props =>(<CensusForm/>)} />
+              <Route exact path="/dashboard/censusForm/endForm" render={props =>(<EndForm/>)} />
+              <Route exact path="/final" render={props =>(<Final/>)} />
           </Switch>
         </div>
       </Router>

@@ -18,6 +18,8 @@ if(process.env.NODE_ENV==='production'){
 app.use('/auth',require('./routes/jwtAuth'))
 //dashboard route
 app.use('/dashboard',require('./routes/dashboard'))
+app.use('/count',require('./routes/censusData'))
+app.use('/count',require('./routes/censusForm'))
 
 app.get('*',(req,res)=>{
     res.sendFile(path.join(__dirname,"frontend/build/index.html"))

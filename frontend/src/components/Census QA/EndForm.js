@@ -1,10 +1,9 @@
-import React, { Fragment,useEffect,useState } from 'react'
+import React,{useState,useEffect} from 'react'
 import { toast } from 'react-toastify';
-import VoterModel from "./VoterModel/VoterModel"
-import "./Dashboard.css"
-import census1 from "../../Assets/census1.jpeg"
+import {Link} from "react-router-dom"
 
-function Dashboard({setAuth}) {
+function EndForm() {
+
     const [name,setName]=useState("")
 
     const getName =async ()=>{
@@ -24,25 +23,19 @@ function Dashboard({setAuth}) {
     const logout=(e)=>{
         e.preventDefault()
         localStorage.removeItem("token")
-        setAuth(false)
+        // setAuth(false)
         toast.dark("Logged out Successfully")
     }
 
     useEffect(()=>{
         getName()
     },[])
-    
     return (
-     <Fragment>
-         <div className="dashboard__topbar">
-         <img  src={census1} alt="census icon"/>
-            <h1>Dashboard</h1>
-            <h3>Welcome {name}</h3>
-            <button   className="btn btn-primary btn-block" onClick={e=>logout(e)}>Log Out</button>
-         </div>
-         <VoterModel />
-     </Fragment>
+        <div>
+            <h2>Thank you For submitting the form .You cna now Log Out</h2>
+            <button   className="btn btn-primary btn-block" onClick={e=>logout(e)}><Link  to="/final" style={{color : "white",textDecoration:"none",fontWeight:900}}>Log Out</Link> </button>
+        </div>
     )
 }
 
-export default Dashboard
+export default EndForm
